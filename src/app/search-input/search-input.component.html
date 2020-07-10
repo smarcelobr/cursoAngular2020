@@ -1,0 +1,8 @@
+<div class="form-group form-inline">
+  <label for="f-filtro">{{label}}</label>
+  <input id="f-filtro" type="text" class="form-control ml-3" #searchBox (input)="onSearch(searchBox.value)"/>
+
+  <button class="btn btn-secondary"
+          [disabled]="!searchBox.value.trim()"
+          (click)="searchBox.value = ''">Limpar</button>
+</div>

@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col">
+    <app-hero-add (add)="onAdd($event)"></app-hero-add>
+  </div>
+
+  <div class="col">
+    <app-search-input label="Nome" (search)="onFilter($event)"></app-search-input>
+  </div>
+</div>
+
+<ul class="list-group mb-3">
+
+  <li class="list-group-item"
+      *ngFor="let hero of heroes | heroFilter:filter ">
+
+    <!-- id -->
+    <div class="d-flex">
+      <div class="p-2">
+        <span class="badge badge-primary badge-pill">{{ hero.id }}</span>
+      </div>
+
+      <!-- name -->
+      <div class="p-2">
+        <a routerLink="/heroes/{{ hero.id }}">
+          {{ hero.name | uppercase }}
+        </a>
+      </div>
+
+      <!-- botão de excluir -->
+      <div class="p-2 ml-auto">
+        <button class="btn btn-danger" (click)="delete(hero)">x</button>
+      </div>
+    </div>
+
+  </li>
+</ul>
